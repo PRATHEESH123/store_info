@@ -15,6 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from product.views import ProductViewSet,CategoryViewSet
+from django.conf.urls import url, include
+
+# 3rd party
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+
+router.register('categories', CategoryViewSet)
+router.register('products', ProductViewSet)
 
 admin.site.site_header = 'Beinex Task'
 admin.site.site_title = 'Beinex Task'
@@ -24,4 +34,6 @@ admin.site.site_url = "https://www.Beinex-Task.in/"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('api/', include('rest_framework.urls'))
 ]

@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+admin.site.site_header = 'Beinex Task'
+admin.site.site_title = 'Beinex Task'
+admin.site.index_title = 'Home'
+admin.site.site_url = "https://www.Beinex-Task.in/"
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
